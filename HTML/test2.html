@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Front vendeur</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!--========== BOX ICONS ==========-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <!-- CSS here -->
+    <link rel="stylesheet" href="../CSS/test2.css">
+    <link rel="stylesheet" href="../CSS/accueil.css">
+
+</head>
+
+<body>
+    <!--========== HEADER ==========-->
+    <header class="header">
+        <div class="header__container">
+
+            <div class="header__toggle">
+                <i class='bx bx-menu' id="header-toggle"></i>
+            </div>
+            <h5 class="header__logo">Nom</h5>
+
+            <div class="header__search">
+                <input type="search" placeholder="Rechercher" class="header__input">
+                <i class='bx bx-search header__icon' style="color: #6871E0;"></i>
+            </div>
+
+            <a href="">
+                <i class='bx bx-log-out nav__icon'>Deconnexion</i>
+            </a>
+        </div>
+    </header>
+
+    <!-- header-end -->
+    <main>   
+        <div class="balance-section">
+            <div class="balance">
+                <h2>Solde</h2>
+                <p>50.000F</p>
+                <div class="transaction-buttons">
+                    <button class="deposit-button" onclick="toggleForm('depositForm')">Dépôt</button>
+                    <button class="withdrawal-button" onclick="toggleForm('withdrawalForm')">Retrait</button>
+                </div>
+                <div id="depositForm" class="transaction-form">
+                    <form>
+                        <label for="depositAmount">Numero de dépot:</label>
+                        <input type="text" id="depositAmount" name="depositAmount" required>
+                        <label for="depositAmount">Montant du Dépôt:</label>
+                        <input type="text" id="depositAmount" name="depositAmount" required>
+                        <button type="submit">Valider</button>
+                    </form>
+                </div>
+                <div id="withdrawalForm" class="transaction-form">
+                    <form>
+                        <label for="withdrawalAmount">Numero du retrait:</label>
+                        <input type="text" id="withdrawalAmount" name="withdrawalAmount" required>
+                        <label for="withdrawalAmount">Montant du Retrait:</label>
+                        <input type="text" id="withdrawalAmount" name="withdrawalAmount" required>
+                        <button type="submit">Valider</button>
+                    </form>
+                </div>
+
+                <div id="overlay" class="overlay"></div>
+
+            </div>
+        </div>
+
+        <div class="transaction-history">
+            <ul>
+                <li>
+                    <span class="transaction-detail">10 Janvier</span>
+                    <span class="transaction-detail">14:30</span>
+                    <span class="transaction-detail">2.000F</span>
+                    <span class="transaction-detail">Dépôt</span>
+                    <span class="transaction-detail">0700035522</span>
+                </li>
+                <li>
+                    <span class="transaction-detail">11 Janvier</span>
+                    <span class="transaction-detail">10:45</span>
+                    <span class="transaction-detail">50.000F</span>
+                    <span class="transaction-detail">Retrait</span>
+                    <span class="transaction-detail">0700035522</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="slogan_home">
+            <div class="slogan_text">
+                <h3> <span>NaN-wallet</span> </h3>
+                <p>
+                    L'appli qui vous permet d'envoyer et transférer de l'argent
+                    en une seconde, mais aussi suivre vos dépenses en quelques étapes.
+                    NaN-Wallet est l'application qui vous appartient réellement.
+                </p>
+                
+            </div>
+        </div>     
+    </main>
+  
+    <!-- FOOTER -->
+    <footer class="bg-light text-center text-lg-start" style="width: 70%; margin: auto;padding: 30px; ">
+        <!-- Copyright -->
+        <div id="text-footer" class="text-center p-2"
+            style="color: #f4f0fa; text-align: center;padding: 7px;  background: #6871E0">
+            &copy;
+            <script>document.write(new Date().getFullYear());</script> NaN-wallet | Tous Droits Réservés
+        </div>
+    </footer>
+    <!--FIN FOOTER -->
+
+    <!-- SCRIPT -->
+    <script>
+        $('#datepicker').datepicker({
+            iconsLibrary: 'fontawesome',
+            icons: {
+                rightIcon: '<span class="fa fa-caret-down"></span>'
+            }
+        });
+        $('#datepicker2').datepicker({
+            iconsLibrary: 'fontawesome',
+            icons: {
+                rightIcon: '<span class="fa fa-caret-down"></span>'
+            }
+
+        });
+        $(document).ready(function () {
+            $('.js-example-basic-multiple').select2();
+        });
+
+
+        // FONCTION POUR L AFFICHAGE DES FORMULAIRES DE DEPOT ET RETRAIT
+
+        function toggleForm(formId) {
+        var form = document.getElementById(formId);
+        var overlay = document.getElementById('overlay');
+        var otherFormId = formId === 'depositForm' ? 'withdrawalForm' : 'depositForm';
+        var otherForm = document.getElementById(otherFormId);
+
+        if (overlay.style.display === 'none') {
+            overlay.style.display = 'flex';
+            form.style.display = 'block';
+            otherForm.style.display = 'none';
+        } else {
+            overlay.style.display = 'none';
+            form.style.display = 'none';
+        }
+    }
+
+    </script>
+</body>
+
+</html>
